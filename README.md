@@ -1,27 +1,9 @@
-# ChangeDetection15Project
+Common Reasons for Change Detection Issues
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.10.
+    Direct Object/Array Mutation: Angular does not detect changes when you directly modify properties of an object or elements of an array. It only detects changes if the reference to the object/array changes.
 
-## Development server
+    Asynchronous Operations: Changes made inside asynchronous operations like setTimeout, setInterval, or after an HTTP call may not be detected if Angular is unaware of them.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+    Change Detection Strategy: If you are using the OnPush change detection strategy, Angular will only check for changes when the input properties change by reference or an event occurs from the component or its children.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    Third-Party Libraries: Some third-party libraries may make changes outside Angular’s zone, causing Angular to miss these changes.
